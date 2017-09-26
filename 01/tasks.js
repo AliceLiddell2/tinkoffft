@@ -5,11 +5,11 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
-  l=string.length;
+  let l = string.length;
   let re = /-?\d+(?:\.\d*)?/gi;
   let mat = string.match(re);
-  for ( var i=0;i<mat.length;i++) {
-      mat[i]=+mat[i];
+  for ( var i=0; i<mat.length; i++) {
+      mat[i] = +mat[i];
   }
   let obj = { min:  Math.min(...mat), max:  Math.max(...mat) };
   return obj;
