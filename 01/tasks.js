@@ -5,13 +5,14 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
-  let l = string.length;
-  let re = /-?\d+(?:\.\d*)?/gi;
-  let mat = string.match(re);
-  for ( var i=0; i<mat.length; i++) {
-      mat[i] = +mat[i];
+  const re = /-?\d+(?:\.\d*)?/gi;
+  const mat = string.match(re);
+  
+  for (var i=0; i<mat.length; i++) {
+    mat[i]=+mat[i];
   }
   let obj = { min:  Math.min(...mat), max:  Math.max(...mat) };
+  
   return obj;
 }
 
@@ -24,16 +25,16 @@ function getMinMax(string) {
  */
 function fibonacciSimple(x) {
   if (x === 0) {
-      return 0;
+    return 0;
   }
   else
   {
-      if ((x === 1) || (x === 2)) {
-          return 1;
-      }
-      else {
-          return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
-      }
+    if ((x === 1) || (x === 2)) {
+        return 1;
+    }
+    else {
+        return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
+    }
   }
   return x;
 }
@@ -48,12 +49,13 @@ function fibonacciSimple(x) {
  */
 function fibonacciWithCache(x) {
   let Cache = [];
+  
   if ( x === 0 )
-      return Cache[0]=0;
+    return Cache[0]=0;
   if ( x === 1 )
-      return Cache[1]=1;
+    return Cache[1]=1;
   if ( !Cache[x] ){
-      Cache[x] = fibonacciWithCache(x-1) + fibonacciWithCache(x-2);
+    Cache[x] = fibonacciWithCache(x-1) + fibonacciWithCache(x-2);
   }
   return x=Cache[x];
 }
@@ -77,83 +79,85 @@ function fibonacciWithCache(x) {
  */
 function printNumbers(max, cols) {
   let mass = [], masstr = [];
+  
   mass[0] = 0;
   let str = [];
   let k = 2, j = 1;
   let sdvig = (max + 1) / cols;
+  
   if ((max + 1) % cols === 0) {
-      for (let i = 1; i < max + 1; i++) {
-          if ((i % cols) !== 0) {
-              mass[i] = mass[i - 1] + sdvig;
-          }
-          else {
-              mass[i] = mass[i - cols] + 1;
-          }
-      }
-      
-      masstr[k - 2] = ' ';
-      masstr[k - 1] = mass[j - 1];
-      masstr[k] = ' ';
-      k++;
-      while (j !== max + 1) {
-          if (j % cols !== 0) {
-              if (mass[j] <= 9) {
-                  masstr[k] = ' ' + mass[j];
-                  masstr[k+1] = ' ';
-                  k += 2;
-                  j++;
-              }
-              else {
-                  masstr[k] = mass[j];
-                  masstr[k + 1] = ' ';
-                  k += 2;
-                  j++;
-              }
-          }
-          else {
-              if (mass[j] <= 9) {
-                  masstr[k-1] = '\n';
-                  masstr[k] = ' ' + mass[j];
-                  masstr[k + 1] = ' ';
-                  k += 2;
-                  j++;
-              }
-              else {
-                  masstr[k-1] = '\n';
-                  masstr[k] = mass[j];
-                  masstr[k + 1] = ' ';
-                  k += 2;
-                  j++;
-              }
-          }
-      }
-      return (masstr.join('').slice(0, -1));
-  }
-  else {
-      for (let i = 1; i < max + 1; i++) {
-          mass[i] = mass[i - 1] + 1;
-      }
-
-      masstr[k - 2] = ' ' + mass[j - 1];
-      masstr[k-1] = ' ';
-      k++;
-
-      while (j !== max + 1) {
-          if (mass[j] <= 9) {
-              masstr[k] = ' ' + mass[j];
-              masstr[k + 1] = ' ';
-              k += 2;
-              j++;
-          }
-          else {
-              masstr[k] = mass[j];
-              masstr[k + 1] = ' ';
-              k += 2;
-              j++;
-          }
-      }
-      return (masstr.join('').slice(0, -1));
+    for (let i = 1; i < max + 1; i++) {
+        if ((i % cols) !== 0) {
+            mass[i] = mass[i - 1] + sdvig;
+        }
+        else {
+            mass[i] = mass[i - cols] + 1;
+        }
     }
+      
+    masstr[k - 2] = ' ';
+    masstr[k - 1] = mass[j - 1];
+    masstr[k] = ' ';
+    k++;
+    while (j !== max + 1) {
+        if (j % cols !== 0) {
+            if (mass[j] <= 9) {
+                masstr[k] = ' ' + mass[j];
+                masstr[k+1] = ' ';
+                k+=2;
+                j++;
+            }
+            else {
+                masstr[k] = mass[j];
+                masstr[k + 1] = ' ';
+                k+=2;
+                j++;
+            }
+        }
+        else {
+            if (mass[j] <= 9) {
+                masstr[k-1] = '\n';
+                masstr[k] = ' ' + mass[j];
+                masstr[k + 1] = ' ';
+                k+=2;
+                j++;
+            }
+            else {
+                masstr[k-1] = '\n';
+                masstr[k] = mass[j];
+                masstr[k + 1] = ' ';
+                k+=2;
+                j++;
+            }
+        }
+    }
+    return (masstr.join('').slice(0, -1));
+}
+else {
+    for (let i = 1; i < max + 1; i++) {
+        mass[i] = mass[i - 1] + 1;
+    }
+
+    masstr[k - 2] = ' ' + mass[j - 1];
+    masstr[k-1] = ' ';
+    k++;
+
+    while (j !== max + 1) {
+        if (mass[j] <= 9) {
+            masstr[k] = ' ' + mass[j];
+            masstr[k + 1] = ' ';
+            k+=2;
+            j++;
+        }
+        else {
+            masstr[k] = mass[j];
+            masstr[k + 1] = ' ';
+            k+=2;
+            j++;
+        }
+    }
+    return (masstr.join('').slice(0, -1));
+  }
 }
 
 /* ============================================= */
@@ -168,23 +172,24 @@ function rle(input) {
   let k = 1;
   let j = 0;
   let n = input.length;
+  
   arr[0] = input[0];
   for (let i = 0; i < n; i++) {
-      if ( arr[j] === input[i+1] ){
-          k++;
-      }
-      else {
-          if (k !== 1) {
-              arr[j+1] = k;
-              arr[j+2] = input[i+1];
-              k = 1;
-              j += 2;
-          }
-          else {
-              arr[j+1] = input[i+1];
-              j++;
-          }
-      }
+    if ( arr[j] === input[i+1] ){
+        k++;
+    }
+    else {
+        if (k !== 1) {
+            arr[j+1] = k;
+            arr[j+2] = input[i+1];
+            k = 1;
+            j += 2;
+        }
+        else {
+            arr[j+1] = input[i+1];
+            j++;
+        }
+    }
   }
   let inp = arr.join('');
   return(inp);
