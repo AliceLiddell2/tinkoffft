@@ -53,7 +53,7 @@ function fibonacciWithCache(x) {
     return Cache[1] = 1;
   }
   if (!Cache[x]) {
-    Cache[x] = fibonacciWithCache(x-1) + fibonacciWithCache(x-2);
+    Cache[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
   }
   return Cache[x];
 }
