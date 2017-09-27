@@ -89,8 +89,7 @@ function printNumbers(max, cols) {
     for (let i = 1; i < max + 1; ++i) {
       if ((i % cols) !== 0) {
         mass[i] = mass[i - 1] + sdvig;
-      }
-      else {
+      } else {
         mass[i] = mass[i - cols] + 1;
       }
     }
@@ -101,28 +100,25 @@ function printNumbers(max, cols) {
     k++;
     while (j !== max + 1) {
       if (j % cols !== 0) {
-          if (mass[j] <= 9) {
-            masstr[k] = ' ' + mass[j];
-            masstr[k+1] = ' ';
-            k+=2;
-            j++;
-          }
-          else {
-            masstr[k] = mass[j];
-            masstr[k + 1] = ' ';
-            k+=2;
-            j++;
-          }
-      }
-      else {
+        if (mass[j] <= 9) {
+          masstr[k] = ' ' + mass[j];
+          masstr[k+1] = ' ';
+          k+=2;
+          j++;
+        } else {
+          masstr[k] = mass[j];
+          masstr[k + 1] = ' ';
+          k+=2;
+          j++;
+        }
+      } else {
         if (mass[j] <= 9) {
           masstr[k-1] = '\n';
           masstr[k] = ' ' + mass[j];
           masstr[k + 1] = ' ';
           k+=2;
           j++;
-        }
-        else {
+        } else {
           masstr[k-1] = '\n';
           masstr[k] = mass[j];
           masstr[k + 1] = ' ';
@@ -148,8 +144,7 @@ else {
         masstr[k + 1] = ' ';
         k+=2;
         j++;
-      }
-      else {
+      } else {
         masstr[k] = mass[j];
         masstr[k + 1] = ' ';
         k+=2;
@@ -177,15 +172,13 @@ function rle(input) {
   for (let i = 0; i < n; ++i) {
     if (arr[j] === input[i+1]) {
       k++;
-    }
-    else {
+    } else {
       if (k !== 1) {
           arr[j+1] = k;
           arr[j+2] = input[i+1];
           k = 1;
           j += 2;
-        }
-        else {
+        } else {
           arr[j+1] = input[i+1];
           j++;
         }
