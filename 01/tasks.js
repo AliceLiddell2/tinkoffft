@@ -8,7 +8,7 @@ function getMinMax(string) {
   const re = /-?\d+(?:\.\d*)?/gi;
   const mat = string.match(re);
 
-  for (let i = 0;i<mat.length;i++ ) {
+  for (let i = 0; i<mat.length; i++) {
     mat[i]=+mat[i];
   }
   const obj = { min: Math.min(...mat), max: Math.max(...mat) };
@@ -33,7 +33,7 @@ function fibonacciSimple(x) {
         return 1;
     }
     else {
-        return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
+      return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
     }
   }
 }
@@ -58,7 +58,7 @@ function fibonacciWithCache(x) {
   if (!Cache[x]){
     Cache[x] = fibonacciWithCache(x-1) + fibonacciWithCache(x-2);
   }
-  return x=Cache[x];
+  return Cache[x];
 }
 
 /* ============================================= */
@@ -85,16 +85,16 @@ function printNumbers(max, cols) {
   let str = [];
   let k = 2;
   let j = 1;
-  let sdvig = (max + 1) / cols;
+  const sdvig = (max + 1) / cols;
 
   if ((max + 1) % cols === 0) {
     for (let i = 1; i < max + 1; i++) {
-        if ((i % cols) !== 0) {
-          mass[i] = mass[i - 1] + sdvig;
-        }
-        else {
-          mass[i] = mass[i - cols] + 1;
-        }
+      if ((i % cols) !== 0) {
+        mass[i] = mass[i - 1] + sdvig;
+      }
+      else {
+        mass[i] = mass[i - cols] + 1;
+      }
     }
       
     masstr[k - 2] = ' ';
@@ -194,7 +194,7 @@ function rle(input) {
     }
   }
   let inp = arr.join('');
-  return(inp);
+  return (inp);
 }
 
 module.exports = {
