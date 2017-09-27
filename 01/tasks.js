@@ -132,8 +132,8 @@ function printNumbers(max, cols) {
           k+=2;
           j++;
         }
+      }
     }
-}
     return (masstr.join('').slice(0, -1));
 }
 else {
@@ -194,7 +194,7 @@ function rle(input) {
         }
     }
   }
-  let inp = arr.join('');
+  const inp = arr.join('');
   return (inp);
 }
 
