@@ -83,7 +83,7 @@ function printNumbers(max, cols) {
 
   for (let i = 0; i < sdvig; ++i) {
     masstr[i] = [];
- 
+
     if (max < cols) {
       while (sc < max + 1) {
         masstr[i][k] = str[i + sdvig * sc];
@@ -119,16 +119,16 @@ function rle(input) {
 
   arr[0] = input[0];
   for (let i = 0; i < n; i++) {
-    if ( arr[j] === input[i+1] ){
+    if (arr[j] === input[i+1]) {
       k++;
     } else {
       if (k !== 1) {
-        arr[j+1] = k;
-        arr[j+2] = input[i+1];
+        arr[j + 1] = k;
+        arr[j + 2] = input[i + 1];
         k = 1;
         j += 2;
       } else {
-        arr[j+1] = input[i+1];
+        arr[j + 1] = input[i + 1];
         j++;
       }
     }
