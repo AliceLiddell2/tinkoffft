@@ -52,7 +52,7 @@ function fibonacciWithCache(x) {
   if (x === 1) {
     return Cache[1]=1;
   }
-  if (!Cache[x]){
+  if (!Cache[x]) {
     Cache[x] = fibonacciWithCache(x-1) + fibonacciWithCache(x-2);
   }
   return Cache[x];
@@ -92,7 +92,7 @@ function printNumbers(max, cols) {
         mass[i] = mass[i - cols] + 1;
       }
     }
-      
+
     masstr[k - 2] = ' ';
     masstr[k - 1] = mass[j - 1];
     masstr[k] = ' ';
@@ -102,12 +102,12 @@ function printNumbers(max, cols) {
         if (mass[j] <= 9) {
           masstr[k] = ' ' + mass[j];
           masstr[k+1] = ' ';
-          k+=2;
+          k += 2;
           j++;
         } else {
           masstr[k] = mass[j];
           masstr[k + 1] = ' ';
-          k+=2;
+          k += 2;
           j++;
         }
       } else {
@@ -127,8 +127,8 @@ function printNumbers(max, cols) {
       }
     }
     return (masstr.join('').slice(0, -1));
-}
-else {
+  }
+  else {
     for (let i = 1; i < max + 1; ++i) {
       mass[i] = mass[i - 1] + 1;
     }
@@ -141,12 +141,12 @@ else {
       if (mass[j] <= 9) {
         masstr[k] = ' ' + mass[j];
         masstr[k + 1] = ' ';
-        k+=2;
+        k += 2;
         j++;
       } else {
         masstr[k] = mass[j];
         masstr[k + 1] = ' ';
-        k+=2;
+        k += 2;
         j++;
       }
     }
@@ -173,14 +173,14 @@ function rle(input) {
       k++;
     } else {
       if (k !== 1) {
-          arr[j+1] = k;
-          arr[j+2] = input[i+1];
-          k = 1;
-          j += 2;
-        } else {
-          arr[j+1] = input[i+1];
-          j++;
-        }
+        arr[j+1] = k;
+        arr[j+2] = input[i+1];
+        k = 1;
+        j += 2;
+      } else {
+        arr[j+1] = input[i+1];
+        j++;
+      }
     }
   }
   const inp = arr.join('');
