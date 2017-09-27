@@ -26,10 +26,7 @@ function getMinMax(string) {
 function fibonacciSimple(x) {
   if (x === 0) {
     return 0;
-  }
-  else
-  {
-    if ((x === 1) || (x === 2)) {
+  } else if ((x === 1) || (x === 2)) {
         return 1;
     }
     else {
@@ -83,7 +80,6 @@ function printNumbers(max, cols) {
   let masstr = [];
 
   mass[0] = 0;
-  let str = [];
   let k = 2;
   let j = 1;
   const sdvig = (max + 1) / cols;
