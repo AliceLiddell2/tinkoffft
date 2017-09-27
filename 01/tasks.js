@@ -113,17 +113,17 @@ function printNumbers(max, cols) {
           }
           else {
               if (mass[j] <= 9) {
-                  masstr[k] = '\n';
-                  masstr[k+1] = ' ' + mass[j];
-                  masstr[k + 2] = ' ';
-                  k += 3;
+                  masstr[k-1] = '\n';
+                  masstr[k] = ' ' + mass[j];
+                  masstr[k + 1] = ' ';
+                  k += 2;
                   j++;
               }
               else {
-                  masstr[k] = '\n';
-                  masstr[k + 1] = mass[j];
-                  masstr[k + 2] = ' ';
-                  k += 3;
+                  masstr[k-1] = '\n';
+                  masstr[k] = mass[j];
+                  masstr[k + 1] = ' ';
+                  k += 2;
                   j++;
               }
           }
