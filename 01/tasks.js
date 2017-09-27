@@ -119,7 +119,7 @@ function rle(input) {
 
   arr[0] = input[0];
   for (let i = 0; i < n; i++) {
-    if (arr[j] === input[i+1]) {
+    if (arr[j] === input[i + 1]) {
       k++;
     } else {
       if (k !== 1) {
