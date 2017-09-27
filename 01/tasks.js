@@ -93,7 +93,12 @@ function printNumbers(max, cols) {
         k = 0;
         sc = 0;
     }
-    str = masstr.join('\n');
+    if (max > cols) {
+        str = masstr.join('\n');
+    } else {
+        str = masstr.join('');
+    }
+    return str;
     return str;
 }
 
