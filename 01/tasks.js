@@ -78,22 +78,23 @@ function fibonacciWithCache(x) {
 function printNumbers(max, cols) {
   str = Array(max+1).fill(0).map((_, i) => '  ' + i.toString()).map(str => str.slice(-2));
     let masstr = [];
-    let k = 0, j = 0, sc = 0;
+    let str2;
+    let k = 0, sc = 0;
     let sdvig = Math.ceil((max + 1) / cols);
 
     for (let i=0; i<sdvig; i++) {
-        j=i;
+        masstr[i] = [];
         while (sc < cols) {
-            masstr[k] = ' ' + str[i + sdvig * sc];
+            masstr[i][k] = str[i + sdvig * sc];
             sc++;
             k++;
         }
-        masstr[k] = '\n';
-        k++;
+        masstr[i] = masstr[i].join(' ');
+        k = 0;
         sc = 0;
     }
-    masstr = ' ' + masstr.join(' ').slice(0, -1)
-    return masstr;
+    str = masstr.join('\n');
+    return str;
 }
 
 /* ============================================= */
