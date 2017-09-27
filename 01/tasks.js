@@ -8,7 +8,7 @@ function getMinMax(string) {
   const re = /-?\d+(?:\.\d*)?/gi;
   const mat = string.match(re);
 
-  for ( let i=0; i<mat.length; i++ ) {
+  for (let i = 0;i<mat.length;i++ ) {
     mat[i]=+mat[i];
   }
   const obj = { min:  Math.min(...mat), max:  Math.max(...mat) };
@@ -53,8 +53,9 @@ function fibonacciWithCache(x) {
   if ( x === 0 ) {
     return Cache[0]=0;
   }
-  if ( x === 1 )
+  if ( x === 1 ) {
     return Cache[1]=1;
+  }
   if ( !Cache[x] ){
     Cache[x] = fibonacciWithCache(x-1) + fibonacciWithCache(x-2);
   }
@@ -83,7 +84,8 @@ function printNumbers(max, cols) {
 
   mass[0] = 0;
   let str = [];
-  let k = 2, j = 1;
+  let k = 2;
+  let j = 1;
   let sdvig = (max + 1) / cols;
 
   if ((max + 1) % cols === 0) {
