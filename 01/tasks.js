@@ -146,18 +146,18 @@ else {
     k++;
 
     while (j !== max + 1) {
-        if (mass[j] <= 9) {
-          masstr[k] = ' ' + mass[j];
-          masstr[k + 1] = ' ';
-          k+=2;
-          j++;
-        }
-        else {
-          masstr[k] = mass[j];
-          masstr[k + 1] = ' ';
-          k+=2;
-          j++;
-        }
+      if (mass[j] <= 9) {
+        masstr[k] = ' ' + mass[j];
+        masstr[k + 1] = ' ';
+        k+=2;
+        j++;
+      }
+      else {
+        masstr[k] = mass[j];
+        masstr[k + 1] = ' ';
+        k+=2;
+        j++;
+      }
     }
     return (masstr.join('').slice(0, -1));
   }
@@ -178,7 +178,7 @@ function rle(input) {
 
   arr[0] = input[0];
   for (let i = 0; i < n; ++i) {
-    if ( arr[j] === input[i+1] ){
+    if (arr[j] === input[i+1]) {
       k++;
     }
     else {
