@@ -7,12 +7,12 @@
 function getMinMax(string) {
   const re = /-?\d+(?:\.\d*)?/gi;
   const mat = string.match(re);
-  
-  for (var i=0; i<mat.length; i++) {
+
+  for ( let i=0; i<mat.length; i++ ) {
     mat[i]=+mat[i];
   }
-  let obj = { min:  Math.min(...mat), max:  Math.max(...mat) };
-  
+  const obj = { min:  Math.min(...mat), max:  Math.max(...mat) };
+
   return obj;
 }
 
@@ -49,9 +49,10 @@ function fibonacciSimple(x) {
  */
 function fibonacciWithCache(x) {
   let Cache = [];
-  
-  if ( x === 0 )
+
+  if ( x === 0 ) {
     return Cache[0]=0;
+  }
   if ( x === 1 )
     return Cache[1]=1;
   if ( !Cache[x] ){
@@ -79,12 +80,12 @@ function fibonacciWithCache(x) {
  */
 function printNumbers(max, cols) {
   let mass = [], masstr = [];
-  
+
   mass[0] = 0;
   let str = [];
   let k = 2, j = 1;
   let sdvig = (max + 1) / cols;
-  
+
   if ((max + 1) % cols === 0) {
     for (let i = 1; i < max + 1; i++) {
         if ((i % cols) !== 0) {
@@ -172,7 +173,7 @@ function rle(input) {
   let k = 1;
   let j = 0;
   let n = input.length;
-  
+
   arr[0] = input[0];
   for (let i = 0; i < n; i++) {
     if ( arr[j] === input[i+1] ){
