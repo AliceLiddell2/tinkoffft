@@ -118,23 +118,22 @@ function rle(input) {
   let n = input.length;
 
   arr[0] = input[0];
-  for (let i = 0; i < n; ++i) {
-    if (arr[j] === input[i + 1]) {
+  for (let i = 0; i < n; i++) {
+    if ( arr[j] === input[i+1] ){
       k++;
-    }
-    if (k !== 1) {
-      arr[j + 1] = k;
-      arr[j + 2] = input[i + 1];
-      k = 1;
-      j += 2;
     } else {
-      arr[j + 1] = input[i + 1];
-      j++;
+      if (k !== 1) {
+        arr[j+1] = k;
+        arr[j+2] = input[i+1];
+        k = 1;
+        j += 2;
+      } else {
+        arr[j+1] = input[i+1];
+        j++;
+      }
     }
   }
-  const inp = arr.join('');
-
-  return (inp);
+  return arr.join('');
 }
 
 module.exports = {
