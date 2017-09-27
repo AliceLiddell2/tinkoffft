@@ -128,7 +128,7 @@ function printNumbers(max, cols) {
               }
           }
       }
-      return (masstr.join(''));
+      return (masstr.join('').slice(0, -1));
   }
   else {
       for (let i = 1; i < max + 1; i++) {
