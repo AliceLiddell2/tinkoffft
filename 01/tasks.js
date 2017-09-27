@@ -89,25 +89,43 @@ function printNumbers(max, cols) {
               mass[i] = mass[i - cols] + 1;
           }
       }
-      let k = 1;
+      let k = 2;
       let j = 1;
       let masstr = [];
+      masstr[k - 2] = ' ';
       masstr[k - 1] = mass[j - 1];
       masstr[k] = ' ';
       k++;
       while (j !== max + 1) {
           if (j % cols !== 0) {
-              masstr[k] = mass[j];
-              masstr[k + 1] = ' ';
-              k = k + 2;
-              j++;
+              if (mass[j] <= 9) {
+                  masstr[k] = ' ' + mass[j];
+                  masstr[k+1] = ' ';
+                  k += 2;
+                  j++;
+              }
+              else {
+                  masstr[k] = mass[j];
+                  masstr[k + 1] = ' ';
+                  k += 2;
+                  j++;
+              }
           }
           else {
-              masstr[k] = '\n';
-              masstr[k + 1] = mass[j];
-              masstr[k + 2] = ' ';
-              k = k + 3;
-              j++;
+              if (mass[j] <= 9) {
+                  masstr[k] = '\n';
+                  masstr[k+1] = ' ' + mass[j];
+                  masstr[k + 2] = ' ';
+                  k += 3;
+                  j++;
+              }
+              else {
+                  masstr[k] = '\n';
+                  masstr[k + 1] = mass[j];
+                  masstr[k + 2] = ' ';
+                  k += 3;
+                  j++;
+              }
           }
       }
       return (masstr.join(''));
@@ -117,7 +135,7 @@ function printNumbers(max, cols) {
           mass[i] = mass[i - 1] + 1;
       }
       return (mass.join(' '));
-  }  
+  }
 }
 
 /* ============================================= */
@@ -142,7 +160,7 @@ function rle(input) {
               arr[j+1] = k;
               arr[j+2] = input[i+1];
               k = 1;
-              j = j+2;
+              j += 2;
           }
           else {
               arr[j+1] = input[i+1];
