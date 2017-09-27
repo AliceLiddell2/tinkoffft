@@ -82,25 +82,25 @@ function printNumbers(max, cols) {
   let sc = 0;
   let sdvig = Math.ceil((max + 1) / cols);
 
-  for (let i=0; i<sdvig; i++) {
-      masstr[i] = [];
-    
-      if (max < cols) {
-        while (sc < max + 1) {
-          masstr[i][k] = str[i + sdvig * sc];
-          sc++;
-          k++;
-        }
-      } else {
-        while (sc < cols) {
-          masstr[i][k] = str[i + sdvig * sc];
-          sc++;
-          k++;
-        }
+  for (let i = 0; i < sdvig; ++i) {
+    masstr[i] = [];
+ 
+    if (max < cols) {
+      while (sc < max + 1) {
+        masstr[i][k] = str[i + sdvig * sc];
+        sc++;
+        k++;
       }
-      masstr[i] = masstr[i].join(' ');
-      k = 0;
-      sc = 0;
+    } else {
+      while (sc < cols) {
+        masstr[i][k] = str[i + sdvig * sc];
+        sc++;
+        k++;
+      }
+    }
+    masstr[i] = masstr[i].join(' ');
+    k = 0;
+    sc = 0;
   }
   return masstr.join('\n');
 }
