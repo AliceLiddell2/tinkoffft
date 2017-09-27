@@ -92,7 +92,8 @@ function printNumbers(max, cols) {
         k++;
         sc = 0;
     }
-    return masstr.join(' ').slice(0, -1);
+    masstr = ' ' + masstr.join(' ').slice(0, -1)
+    return masstr;
 }
 
 /* ============================================= */
