@@ -76,9 +76,10 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  let mass = [];
+  let mass = [], masstr = [];
   mass[0] = 0;
   let str = [];
+  let k = 2, j = 1;
   let sdvig = (max + 1) / cols;
   if ((max + 1) % cols === 0) {
       for (let i = 1; i < max + 1; i++) {
@@ -89,9 +90,7 @@ function printNumbers(max, cols) {
               mass[i] = mass[i - cols] + 1;
           }
       }
-      let k = 2;
-      let j = 1;
-      let masstr = [];
+      
       masstr[k - 2] = ' ';
       masstr[k - 1] = mass[j - 1];
       masstr[k] = ' ';
@@ -134,8 +133,27 @@ function printNumbers(max, cols) {
       for (let i = 1; i < max + 1; i++) {
           mass[i] = mass[i - 1] + 1;
       }
-      return (mass.join(' '));
-  }
+
+      masstr[k - 2] = ' ' + mass[j - 1];
+      masstr[k-1] = ' ';
+      k++;
+
+      while (j !== max + 1) {
+          if (mass[j] <= 9) {
+              masstr[k] = ' ' + mass[j];
+              masstr[k + 1] = ' ';
+              k += 2;
+              j++;
+          }
+          else {
+              masstr[k] = mass[j];
+              masstr[k + 1] = ' ';
+              k += 2;
+              j++;
+          }
+      }
+      return (masstr.join('').slice(0, -1));
+    }
 }
 
 /* ============================================= */
