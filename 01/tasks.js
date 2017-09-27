@@ -26,12 +26,11 @@ function getMinMax(string) {
 function fibonacciSimple(x) {
   if (x === 0) {
     return 0;
+  }
+  if ((x === 1) || (x === 2)) {
+    return 1;
   } else {
-    if ((x === 1) || (x === 2)) {
-      return 1;
-    } else {
-      return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
-    }
+    return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
   }
 }
 
@@ -76,7 +75,7 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  let str = Array(max+1).fill(0).map((_, i) => '  ' + i.toString()).map(str => str.slice(-2));
+  const str = Array(max + 1).fill(0).map((_, i) => '  ' + i.toString()).map(str => str.slice(-2));
   let masstr = [];
   let k = 0;
   let sc = 0;
@@ -122,16 +121,15 @@ function rle(input) {
   for (let i = 0; i < n; ++i) {
     if (arr[j] === input[i + 1]) {
       k++;
+    }
+    if (k !== 1) {
+      arr[j + 1] = k;
+      arr[j + 2] = input[i + 1];
+      k = 1;
+      j += 2;
     } else {
-      if (k !== 1) {
-        arr[j + 1] = k;
-        arr[j + 2] = input[i + 1];
-        k = 1;
-        j += 2;
-      } else {
-        arr[j + 1] = input[i + 1];
-        j++;
-      }
+      arr[j + 1] = input[i + 1];
+      j++;
     }
   }
   const inp = arr.join('');
