@@ -95,11 +95,10 @@ function printNumbers(max, cols) {
     }
     if (max > cols) {
         str = masstr.join('\n');
+        return str;
     } else {
-        str = masstr.join('');
+        return masstr[0];
     }
-    return str;
-    return str;
 }
 
 /* ============================================= */
