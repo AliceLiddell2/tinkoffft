@@ -8,7 +8,7 @@ function getMinMax(string) {
   const re = /-?\d+(?:\.\d*)?/gi;
   const mat = string.match(re);
 
-  for (let i = 0; i<mat.length; i++) {
+  for (let i = 0; i<mat.length; ++i) {
     mat[i]=+mat[i];
   }
   const obj = { min: Math.min(...mat), max: Math.max(...mat) };
@@ -79,7 +79,8 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  let mass = [], masstr = [];
+  let mass = [];
+  let masstr = [];
 
   mass[0] = 0;
   let str = [];
@@ -88,7 +89,7 @@ function printNumbers(max, cols) {
   const sdvig = (max + 1) / cols;
 
   if ((max + 1) % cols === 0) {
-    for (let i = 1; i < max + 1; i++) {
+    for (let i = 1; i < max + 1; ++i) {
       if ((i % cols) !== 0) {
         mass[i] = mass[i - 1] + sdvig;
       }
@@ -102,41 +103,41 @@ function printNumbers(max, cols) {
     masstr[k] = ' ';
     k++;
     while (j !== max + 1) {
-        if (j % cols !== 0) {
-            if (mass[j] <= 9) {
-              masstr[k] = ' ' + mass[j];
-              masstr[k+1] = ' ';
-              k+=2;
-              j++;
-            }
-            else {
-              masstr[k] = mass[j];
-              masstr[k + 1] = ' ';
-              k+=2;
-              j++;
-            }
+      if (j % cols !== 0) {
+          if (mass[j] <= 9) {
+            masstr[k] = ' ' + mass[j];
+            masstr[k+1] = ' ';
+            k+=2;
+            j++;
+          }
+          else {
+            masstr[k] = mass[j];
+            masstr[k + 1] = ' ';
+            k+=2;
+            j++;
+          }
+      }
+      else {
+        if (mass[j] <= 9) {
+          masstr[k-1] = '\n';
+          masstr[k] = ' ' + mass[j];
+          masstr[k + 1] = ' ';
+          k+=2;
+          j++;
         }
         else {
-            if (mass[j] <= 9) {
-              masstr[k-1] = '\n';
-              masstr[k] = ' ' + mass[j];
-              masstr[k + 1] = ' ';
-              k+=2;
-              j++;
-            }
-            else {
-              masstr[k-1] = '\n';
-              masstr[k] = mass[j];
-              masstr[k + 1] = ' ';
-              k+=2;
-              j++;
-            }
+          masstr[k-1] = '\n';
+          masstr[k] = mass[j];
+          masstr[k + 1] = ' ';
+          k+=2;
+          j++;
         }
     }
+}
     return (masstr.join('').slice(0, -1));
 }
 else {
-    for (let i = 1; i < max + 1; i++) {
+    for (let i = 1; i < max + 1; ++i) {
       mass[i] = mass[i - 1] + 1;
     }
 
@@ -176,7 +177,7 @@ function rle(input) {
   let n = input.length;
 
   arr[0] = input[0];
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < n; ++i) {
     if ( arr[j] === input[i+1] ){
       k++;
     }
