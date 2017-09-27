@@ -84,10 +84,19 @@ function printNumbers(max, cols) {
 
   for (let i=0; i<sdvig; i++) {
       masstr[i] = [];
-      while (sc < max + 1) {
+    
+      if (max < cols) {
+        while (sc < max + 1) {
           masstr[i][k] = str[i + sdvig * sc];
           sc++;
           k++;
+        }
+      } else {
+        while (sc < cols) {
+          masstr[i][k] = str[i + sdvig * sc];
+          sc++;
+          k++;
+        }
       }
       masstr[i] = masstr[i].join(' ');
       k = 0;
