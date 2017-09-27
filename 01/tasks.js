@@ -76,82 +76,23 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  let mass = [];
-  let masstr = [];
+  str = Array(max+1).fill(0).map((_, i) => '  ' + i.toString()).map(str => str.slice(-3));
+    let masstr = [];
+    let k = 0, j = 0, sc = 0;
+    let sdvig = Math.ceil((max + 1) / cols);
 
-  mass[0] = 0;
-  let k = 2;
-  let j = 1;
-  const sdvig = (max + 1) / cols;
-
-  if ((max + 1) % cols === 0) {
-    for (let i = 1; i < max + 1; ++i) {
-      if ((i % cols) !== 0) {
-        mass[i] = mass[i - 1] + sdvig;
-      } else {
-        mass[i] = mass[i - cols] + 1;
-      }
-    }
-
-    masstr[k - 2] = ' ';
-    masstr[k - 1] = mass[j - 1];
-    masstr[k] = ' ';
-    k++;
-    while (j !== max + 1) {
-      if (j % cols !== 0) {
-        if (mass[j] <= 9) {
-          masstr[k] = ' ' + mass[j];
-          masstr[k + 1] = ' ';
-          k += 2;
-          j++;
-        } else {
-          masstr[k] = mass[j];
-          masstr[k + 1] = ' ';
-          k += 2;
-          j++;
+    for (let i=0; i<sdvig; i++) {
+        j=i;
+        while (sc < cols) {
+            masstr[k] = str[j + sdvig * sc];
+            sc++;
+            k++;
         }
-      } else {
-        if (mass[j] <= 9) {
-          masstr[k - 1] = '\n';
-          masstr[k] = ' ' + mass[j];
-          masstr[k + 1] = ' ';
-          k += 2;
-          j++;
-        } else {
-          masstr[k - 1] = '\n';
-          masstr[k] = mass[j];
-          masstr[k + 1] = ' ';
-          k+=2;
-          j++;
-        }
-      }
+        masstr[k] = '\n';
+        k++;
+        sc = 0;
     }
-    return (masstr.join('').slice(0, -1));
-  }
-  else {
-    for (let i = 1; i < max + 1; ++i) {
-      mass[i] = mass[i - 1] + 1;
-    }
-
-    masstr[k - 2] = ' ' + mass[j - 1];
-    masstr[k - 1] = ' ';
-    k++;
-
-    while (j !== max + 1) {
-      if (mass[j] <= 9) {
-        masstr[k] = ' ' + mass[j];
-        masstr[k + 1] = ' ';
-        k += 2;
-        j++;
-      } else {
-        masstr[k] = mass[j];
-        masstr[k + 1] = ' ';
-        k += 2;
-        j++;
-      }
-    }
-    return (masstr.join('').slice(0, -1));
-  }
+    return masstr.join('').slice(0, -1);
 }
 
 /* ============================================= */
