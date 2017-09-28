@@ -69,7 +69,7 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  let c = 1, gc = 0, str = '', cond = cols - 1, 
+  let c = 1, gc = 0, str = '', cond = cols - 1; 
   const sdvig = Math.ceil((max + 1) / cols);
 
   if (max < cols) {
