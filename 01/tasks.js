@@ -77,24 +77,23 @@ function printNumbers(max, cols) {
 
   if (max < cols) {
     cond = max;
-  } else {
-    while (gc < sdvig) {
-      str += ' ' + gc;
-      gc += sdvig;
-      for (let i = 0; i < cond; i++) {
-        if (gc < 10) {
-          str += '  ' + gc;
-          gc += sdvig;
-        } else {
-          str += ' ' + gc;
-          gc += sdvig;
-        }
-      }
-      str += '\n';
-      gc = c++;
-    }
   }
-  return(str.slice(0, -1));
+  while (gc < sdvig) {
+    str += ' ' + gc;
+    gc += sdvig;
+    for (let i = 0; i < cond; i++) {
+      if (gc < 10) {
+        str += '  ' + gc;
+        gc += sdvig;
+      } else {
+        str += ' ' + gc;
+        gc += sdvig;
+      }
+    }
+    str += '\n';
+    gc = c++;
+  }
+  return str.slice(0, -1);
 }
 
 /* ============================================= */
