@@ -105,7 +105,7 @@ function printNumbers(max, cols) {
  * @return {string}
  */
 function rle(input) {
-  let arr = [];
+  const arr = [];
   let k = 1;
   let j = 0;
 
@@ -116,11 +116,10 @@ function rle(input) {
     } else {
       if (k !== 1) {
         arr[j] = input[i] + k;
-        arr[j+1] = input[i+1];
+        arr[j + 1] = input[i + 1];
         k = 1;
-      }
-      else {
-        arr[j+1] = input[i+1];
+      } else {
+        arr[j + 1] = input[i + 1];
       }
       j++;
     }
