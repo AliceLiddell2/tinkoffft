@@ -82,13 +82,13 @@ function printNumbers(max, cols) {
     if (max < cols) {
       while (sc < max + 1) {
         str2 = str2 + str[i + Math.ceil((max + 1) / cols) * sc] + ' ';
-        sc++;
+        sc += 1;
       }
       sc = 0;
     } else {
       while (sc < cols) {
         str2 = str2 + str[i + Math.ceil((max + 1) / cols) * sc] + ' ';
-        sc++;
+        sc += 1;
       }
       str2 = str2.slice(0, -1) + '\n';
       sc = 0;
@@ -112,7 +112,7 @@ function rle(input) {
   arr[0] = input[0];
   for (let i = 0; i < input.length; i++) {
     if (arr[j] === input[i + 1]) {
-      k++;
+      k += 1;
     } else {
       if (k !== 1) {
         arr[j] = input[i] + k;
@@ -121,7 +121,7 @@ function rle(input) {
       } else {
         arr[j + 1] = input[i + 1];
       }
-      j++;
+      j += 1;
     }
   }
   return arr.join('');
