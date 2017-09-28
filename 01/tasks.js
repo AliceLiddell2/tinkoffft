@@ -71,9 +71,7 @@ function fibonacciWithCache(x) {
 function printNumbers(max, cols) {
   let counter = 1;
   let globCount = 0;
-  let strCount = 0;
-  let str = ' ';
-  str = str.slice(0,-1);
+  let str = '';
   let sdvig = Math.ceil((max + 1) / cols);
 
   while (globCount < sdvig) {
@@ -89,7 +87,7 @@ function printNumbers(max, cols) {
       }
     }
     str = str + '\n';
-    globCount = counter + 1;
+    globCount = counter++;
   }
   return(str.slice(0, -1));
 }
