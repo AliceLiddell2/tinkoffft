@@ -109,7 +109,7 @@ function rle(input) {
     if (arrForNewCountedString[arrCounter] === input[i + 1]) {
       counterForLet += 1;
     } else {
-      if (counter !== 1) {
+      if (counterForLet !== 1) {
         arrForNewCountedString[arrCounter] = input[i] + counterForLet;
         arrForNewCountedString[arrCounter + 1] = input[i + 1];
         counterForLet = 1;
