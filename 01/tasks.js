@@ -75,10 +75,10 @@ function printNumbers(max, cols) {
   let sdvig = Math.ceil((max + 1) / cols);
 
   if (max < cols) {
-        str = str + ' ';
-        for ( i = 0; i < max + 1; i++) {
-            str = str + i + ' ';
-        } 
+    str = str + ' ';
+    for ( i = 0; i < max + 1; i++) {
+        str = str + i + ' ';
+    } 
   } else {  
     while (globCount < sdvig) {
       str = str + ' ' + globCount;
