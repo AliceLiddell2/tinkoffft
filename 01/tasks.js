@@ -69,22 +69,21 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  let c = 1, gc = 0, str = '', cond = cols - 1; 
-  const sdvig = Math.ceil((max + 1) / cols);
-
+  let c = 1, gc = 0, str = '', cond = cols - 1;
+  
   if (max < cols) {
     cond = max;
   }
-  while (gc < sdvig) {
+  while (gc < Math.ceil((max + 1) / cols);) {
     str += ' ' + gc;
-    gc += sdvig;
+    gc += Math.ceil((max + 1) / cols);;
     for (let i = 0; i < cond; i++) {
       if (gc < 10) {
         str += '  ' + gc;
-        gc += sdvig;
+        gc += Math.ceil((max + 1) / cols);;
       } else {
         str += ' ' + gc;
-        gc += sdvig;
+        gc += Math.ceil((max + 1) / cols);;
       }
     }
     str += '\n';
