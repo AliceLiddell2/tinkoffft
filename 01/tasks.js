@@ -69,32 +69,32 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
-  let counter = 1;
-  let globCount = 0;
+  let c=1;
+  let gc = 0;
   let str = '';
   let sdvig = Math.ceil((max + 1) / cols);
 
   if (max < cols) {
     str = str + ' ';
-    for ( i = 0; i < max + 1; i++) {
+    for ( i = 0; i<max+1; i++) {
         str = str + i + ' ';
-    } 
-  } else {  
-    while (globCount < sdvig) {
-      str = str + ' ' + globCount;
-      globCount = globCount + sdvig;
-      for ( i = 0; i < cols - 1; i++) {
-        if (globCount < 10) {
-          str = str + '  ' + globCount;
-            globCount = globCount + sdvig;
+    }
+  } else {
+    while (gc < sdvig) {
+      str = str + ' ' + gc;
+      gc = gc + sdvig;
+      for (i = 0; i < cols - 1; i++) {
+        if (gc < 10) {
+          str = str + '  ' + gc;
+          gc = gc + sdvig;
         } else {
-          str = str + ' ' + globCount;
-          globCount = globCount + sdvig;
+          str = str + ' ' + gc;
+          gc = gc + sdvig;
         }
       }
+      str = str + '\n';
+      gc = c++;
     }
-    str = str + '\n';
-    globCount = counter++;
   }
   return(str.slice(0, -1));
 }
