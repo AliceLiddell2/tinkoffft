@@ -39,11 +39,11 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
-const Cache = [0, 1];
+const cache = [0, 1];
 
 function fibonacciWithCache(x) {
   let result;
-  const resultEnd = (result = Cache[x]) != null ? result : Cache[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
+  const resultEnd = (result = cache[x]) != null ? result : cache[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
 
   return resultEnd;
 }
