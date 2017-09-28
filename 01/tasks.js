@@ -74,16 +74,23 @@ function printNumbers(max, cols) {
   let str = '';
   let sdvig = Math.ceil((max + 1) / cols);
 
-  while (globCount < sdvig) {
-    str = str + ' ' + globCount;
-    globCount = globCount + sdvig;
-    for ( i = 0; i < cols - 1; i++) {
-      if (globCount < 10) {
-        str = str + '  ' + globCount;
+  if (max < cols) {
+        str = str + ' ';
+        for ( i = 0; i < max + 1; i++) {
+            str = str + i + ' ';
+        } 
+  } else {  
+    while (globCount < sdvig) {
+      str = str + ' ' + globCount;
+      globCount = globCount + sdvig;
+      for ( i = 0; i < cols - 1; i++) {
+        if (globCount < 10) {
+          str = str + '  ' + globCount;
+            globCount = globCount + sdvig;
+        } else {
+          str = str + ' ' + globCount;
           globCount = globCount + sdvig;
-      } else {
-        str = str + ' ' + globCount;
-        globCount = globCount + sdvig;
+        }
       }
     }
     str = str + '\n';
