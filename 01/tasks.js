@@ -94,7 +94,7 @@ function printNumbers(max, cols) {
         str2 = str2 + str[i + sdvig * sc] + ' ';
         sc++;
       }
-      str2 = str2 + '\n';
+      str2 = str2.slice(0,-1) + '\n';
       k = 0;
       sc = 0;
     }
