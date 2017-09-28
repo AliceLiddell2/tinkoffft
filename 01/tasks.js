@@ -70,25 +70,25 @@ function fibonacciWithCache(x) {
  */
 function printNumbers(max, cols) {
   let counter = 1;
-  let globalCounter = 0;
+  let globCount = 0;
   let strCount = 0;
   let str = '';
   let sdvig = Math.ceil((max + 1) / cols);
 
-  while (globalCounter < sdvig) {
-    str = str + ' ' + globalCounter;
-    globalCounter = globalCounter + sdvig;
+  while (globCount < sdvig) {
+    str = str + ' ' + globCount;
+    globCount = globCount + sdvig;
     for ( i = 0; i < cols - 1; i++) {
-      if (globalCounter < 10) {
-        str = str + '  ' + globalCounter;
-          globalCounter = globalCounter + sdvig;
+      if (globCount < 10) {
+        str = str + '  ' + globCount;
+          globCount = globCount + sdvig;
       } else {
-        str = str + ' ' + globalCounter;
-        globalCounter = globalCounter + sdvig;
+        str = str + ' ' + globCount;
+        globCount = globCount + sdvig;
       }
     }
     str = str + '\n';
-    globalCounter = counter + 1;
+    globCount = counter + 1;
   }
   return(str.slice(0, -1));
 }
