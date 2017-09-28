@@ -8,7 +8,7 @@ function getMinMax(string) {
   const searchForNumbers = /-?\d+(?:\.\d*)?/gi;
   const stringWithNumbers = string.match(searchForNumbers);
   const numbers = stringWithNumbers.map(element => parseFloat(element));
-  
+
   const MinMax = { min: Math.min(...numbers), max: Math.max(...numbers) };
 
   return MinMax;
@@ -39,11 +39,12 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
-let Cache = [0,1];
+const Cache = [0, 1];
 
 function fibonacciWithCache(x) {
   let result;
-  let resultEnd = (result = Cache[x]) != null ? result : Cache[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
+  const resultEnd = (result = Cache[x]) != null ? result : Cache[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
+  
   return resultEnd;
 }
 
