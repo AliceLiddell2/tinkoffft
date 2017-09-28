@@ -29,9 +29,8 @@ function fibonacciSimple(x) {
   }
   if ((x === 1) || (x === 2)) {
     return 1;
-  } else {
-    return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
   }
+  return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
 }
 
 /* ============================================= */
