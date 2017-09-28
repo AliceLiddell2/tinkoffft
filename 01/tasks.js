@@ -43,9 +43,10 @@ const cache = [0, 1];
 
 function fibonacciWithCache(x) {
   let result = cache[x];
+  
   if (typeof result !== 'number') {
-      result = fibonacciWithCache(x-1) + fibonacciWithCache(x-2);
-      cache[x] = result;
+    result = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
+    cache[x] = result;
   }
   return result;
 }
