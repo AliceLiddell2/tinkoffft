@@ -115,14 +115,12 @@ function rle(input) {
       k++;
     } else {
       if (k !== 1) {
-        arr[j + 1] = k;
-        arr[j + 2] = input[i + 1];
+        arr[j + 1] = k + input[i + 1];
         k = 1;
-        j += 2;
       } else {
         arr[j + 1] = input[i + 1];
-        j++;
       }
+      j++;
     }
   }
   return arr.join('');
