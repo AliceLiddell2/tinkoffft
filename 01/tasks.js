@@ -44,7 +44,7 @@ const Cache = [0, 1];
 function fibonacciWithCache(x) {
   let result;
   const resultEnd = (result = Cache[x]) != null ? result : Cache[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
-  
+
   return resultEnd;
 }
 
