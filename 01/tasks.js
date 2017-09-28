@@ -70,7 +70,7 @@ function fibonacciWithCache(x) {
  */
 function printNumbers(max, cols) {
   let c = 1, gc = 0, str = '', cond = cols - 1;
-  
+
   if (max < cols) {
     cond = max;
   }
