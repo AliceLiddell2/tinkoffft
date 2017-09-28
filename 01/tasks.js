@@ -75,25 +75,25 @@ function printNumbers(max, cols) {
   let sdvig = Math.ceil((max + 1) / cols);
 
   if (max < cols) {
-    str = str + ' ';
-    for ( i = 0; i<max+1; i++) {
-        str = str + i + '  ';
+    str += ' ';
+    for ( let i = 0; i < max + 1; i++) {
+        str += i + '  ';
     }
     str = str.slice(0, -1);
   } else {
     while (gc < sdvig) {
-      str = str + ' ' + gc;
-      gc = gc + sdvig;
-      for (i = 0; i < cols - 1; i++) {
+      str +=  ' ' + gc;
+      gc += sdvig;
+      for (let i = 0; i < cols - 1; i++) {
         if (gc < 10) {
-          str = str + '  ' + gc;
-          gc = gc + sdvig;
+          str += '  ' + gc;
+          gc += sdvig;
         } else {
-          str = str + ' ' + gc;
-          gc = gc + sdvig;
+          str += ' ' + gc;
+          gc += sdvig;
         }
       }
-      str = str + '\n';
+      str += '\n';
       gc = c++;
     }
   }
