@@ -77,8 +77,9 @@ function printNumbers(max, cols) {
   if (max < cols) {
     str = str + ' ';
     for ( i = 0; i<max+1; i++) {
-        str = str + i + ' ';
+        str = str + i + '  ';
     }
+    str = str.slice(0, -1);
   } else {
     while (gc < sdvig) {
       str = str + ' ' + gc;
