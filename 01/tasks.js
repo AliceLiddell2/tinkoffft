@@ -100,26 +100,26 @@ function printNumbers(max, cols) {
  * @return {string}
  */
 function rle(input) {
-  const arr = [];
-  let k = 1;
-  let j = 0;
+  const arrForNewCountedString = [];
+  let counterForLet = 1;
+  let arrCounter = 0;
 
-  arr[0] = input[0];
+  arrForNewCountedString[0] = input[0];
   for (let i = 0; i < input.length; i++) {
-    if (arr[j] === input[i + 1]) {
-      k += 1;
+    if (arrForNewCountedString[arrCounter] === input[i + 1]) {
+      counterForLet += 1;
     } else {
-      if (k !== 1) {
-        arr[j] = input[i] + k;
-        arr[j + 1] = input[i + 1];
-        k = 1;
+      if (counter !== 1) {
+        arrForNewCountedString[arrCounter] = input[i] + counterForLet;
+        arrForNewCountedString[arrCounter + 1] = input[i + 1];
+        counterForLet = 1;
       } else {
-        arr[j + 1] = input[i + 1];
+        arrForNewCountedString[arrCounter + 1] = input[i + 1];
       }
-      j += 1;
+      arrCounter += 1;
     }
   }
-  return arr.join('');
+  return arrForNewCountedString.join('');
 }
 
 module.exports = {
