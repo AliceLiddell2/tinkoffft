@@ -43,7 +43,7 @@ function fibonacciSimple(x) {
  * @return {number} число под номером х
  */
 function fibonacciWithCache(x) {
-  let Cache = [0,1];
+  const Cache = [0, 1];
 
   if (x === 0) {
     return Cache[0];
