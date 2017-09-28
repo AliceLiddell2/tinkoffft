@@ -43,13 +43,13 @@ function fibonacciSimple(x) {
  * @return {number} число под номером х
  */
 function fibonacciWithCache(x) {
-  let Cache = [];
+  let Cache = [0,1];
 
   if (x === 0) {
-    return Cache[0] = 0;
+    return Cache[0];
   }
   if (x === 1) {
-    return Cache[1] = 1;
+    return Cache[1];
   }
   if (!Cache[x]) {
     Cache[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
