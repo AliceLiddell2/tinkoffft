@@ -108,10 +108,9 @@ function rle(input) {
   let arr = [];
   let k = 1;
   let j = 0;
-  let n = input.length;
 
   arr[0] = input[0];
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < input.length; i++) {
     if (arr[j] === input[i + 1]) {
       k++;
     } else {
