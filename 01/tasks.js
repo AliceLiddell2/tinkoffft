@@ -74,16 +74,16 @@ function printNumbers(max, cols) {
   if (max < cols) {
     cond = max;
   }
-  while (gc < Math.ceil((max + 1) / cols);) {
+  while (gc < Math.ceil((max + 1) / cols)) {
     str += ' ' + gc;
-    gc += Math.ceil((max + 1) / cols);;
+    gc += Math.ceil((max + 1) / cols);
     for (let i = 0; i < cond; i++) {
       if (gc < 10) {
         str += '  ' + gc;
-        gc += Math.ceil((max + 1) / cols);;
+        gc += Math.ceil((max + 1) / cols);
       } else {
         str += ' ' + gc;
-        gc += Math.ceil((max + 1) / cols);;
+        gc += Math.ceil((max + 1) / cols);
       }
     }
     str += '\n';
