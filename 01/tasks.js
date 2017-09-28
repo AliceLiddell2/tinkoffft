@@ -99,7 +99,6 @@ function printNumbers(max, cols) {
       sc = 0;
     }
   }
-  console.log(str2);
 }
 
 /* ============================================= */
