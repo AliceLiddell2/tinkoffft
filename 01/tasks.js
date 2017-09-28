@@ -5,15 +5,13 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
-  const re = /-?\d+(?:\.\d*)?/gi;
-  const mat = string.match(re);
+  const searchForNumbers = /-?\d+(?:\.\d*)?/gi;
+  const stringWithNumbers = string.match(searchForNumbers);
+  const numbers = stringWithNumbers.map(element => parseFloat(element));
+  
+  const MinMax = { min: Math.min(...numbers), max: Math.max(...numbers) };
 
-  for (let i = 0; i < mat.length; ++i) {
-    mat[i] = +mat[i];
-  }
-  const obj = { min: Math.min(...mat), max: Math.max(...mat) };
-
-  return obj;
+  return MinMax;
 }
 
 /* ============================================= */
@@ -27,7 +25,7 @@ function fibonacciSimple(x) {
   if (x === 0) {
     return 0;
   }
-  if ((x === 1) || (x === 2)) {
+  if (x === 1) {
     return 1;
   }
   return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
@@ -41,14 +39,12 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
+const Cache = [0, 1];
+
 function fibonacciWithCache(x) {
-  const Cache = [0, 1];
 
   if (x === 0) {
     return Cache[0];
-  }
-  if (x === 1) {
-    return Cache[1];
   }
   if (!Cache[x]) {
     Cache[x] = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
