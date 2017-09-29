@@ -5,7 +5,13 @@
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
+  const searchForNumbers = /-?\d+(?:\.\d*)?/gi;
+  const stringWithNumbers = string.match(searchForNumbers);
+  const numbers = stringWithNumbers.map(element => parseFloat(element));
 
+  const MinMax = { min: Math.min(...numbers), max: Math.max(...numbers) };
+
+  return MinMax;
 }
 
 /* ============================================= */
@@ -16,7 +22,13 @@ function getMinMax(string) {
  * @return {number} число под номером х
  */
 function fibonacciSimple(x) {
-  return x;
+  if (x === 0) {
+    return 0;
+  }
+  if (x === 1) {
+    return 1;
+  }
+  return fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
 }
 
 /* ============================================= */
@@ -27,8 +39,16 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
+const cache = [0, 1];
+
 function fibonacciWithCache(x) {
-  return x;
+  let result = cache[x];
+
+  if (typeof result !== 'number') {
+    result = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
+    cache[x] = result;
+  }
+  return result;
 }
 
 /* ============================================= */
@@ -49,7 +69,27 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
+  let count = 1, glCount = 0, str = '', conditionForInnerCycle = cols - 1;
+  const strShift = Math.ceil((max + 1) / cols);
 
+  if (max < cols) {
+    conditionForInnerCycle = max;
+  }
+  while (glCount < strShift) {
+    str += ' ' + glCount;
+    glCount += strShift;
+    for (let i = 0; i < conditionForInnerCycle; i++) {
+      if (glCount < 10) {
+        str += '  ' + glCount;
+      } else {
+        str += ' ' + glCount;
+      }
+      glCount += strShift;
+    }
+    str += '\n';
+    glCount = count++;
+  }
+  return str.slice(0, -1);
 }
 
 /* ============================================= */
@@ -60,7 +100,26 @@ function printNumbers(max, cols) {
  * @return {string}
  */
 function rle(input) {
+  const arrForNewCountedString = [];
+  let counterForLet = 1;
+  let arrCounter = 0;
 
+  arrForNewCountedString[0] = input[0];
+  for (let i = 0; i < input.length; i++) {
+    if (arrForNewCountedString[arrCounter] === input[i + 1]) {
+      counterForLet += 1;
+    } else {
+      if (counterForLet !== 1) {
+        arrForNewCountedString[arrCounter] = input[i] + counterForLet;
+        arrForNewCountedString[arrCounter + 1] = input[i + 1];
+        counterForLet = 1;
+      } else {
+        arrForNewCountedString[arrCounter + 1] = input[i + 1];
+      }
+      arrCounter += 1;
+    }
+  }
+  return arrForNewCountedString.join('');
 }
 
 module.exports = {
